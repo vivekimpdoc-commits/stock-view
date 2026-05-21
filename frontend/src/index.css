@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background: radial-gradient(circle at 50% 0%, #151a2d 0%, #090a0f 70%);
+    overflow-y: overlay;
+  }
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  background: rgba(17, 19, 28, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-panel-hover:hover {
+  background: rgba(25, 29, 44, 0.8);
+  border-color: rgba(0, 240, 255, 0.25);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+/* High-fidelity Neon glow shadows */
+.shadow-cyan-glow {
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.35);
+}
+.shadow-green-glow {
+  box-shadow: 0 0 15px rgba(0, 255, 170, 0.35);
+}
+.shadow-red-glow {
+  box-shadow: 0 0 15px rgba(255, 42, 95, 0.35);
+}
+
+/* Custom Scrollbar for sleek trading platforms */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(9, 10, 15, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(31, 37, 56, 0.8);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 240, 255, 0.5);
+}
+
+/* Flash Animations on stock ticks */
+@keyframes flash-up-glow {
+  0% {
+    background-color: rgba(0, 255, 170, 0.18);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes flash-down-glow {
+  0% {
+    background-color: rgba(255, 42, 95, 0.18);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.animate-tick-up {
+  animation: flash-up-glow 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.animate-tick-down {
+  animation: flash-down-glow 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Grid overlay background */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* Hide scrollbars but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

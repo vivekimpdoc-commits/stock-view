@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "_id": "8jkij7f6v",
+      "username": "vivek",
+      "email": "vivek.impdoc@gmail.com",
+      "password": "$2a$10$1od910jL/YG8Nf7MiIWRdOZ8z8SQOmUmnah5D3HFSz1afG5tN8mwC",
+      "watchlist": [],
+      "balance": 100000,
+      "portfolio": [],
+      "createdAt": "2026-05-21T12:23:30.821Z"
+    }
+  ]
+}
