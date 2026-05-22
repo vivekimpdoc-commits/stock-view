@@ -26,7 +26,7 @@ app.use(cors());
 app.use(express.json());
 
 // Main entry welcome route
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   res.json({
     status: 'online',
     system: 'NSE/BSE Indian Stock Market High-Frequency Live Feed Server',
