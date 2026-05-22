@@ -1,5 +1,5 @@
 // Real-time NSE/BSE Stock Market Simulation Service (with Yahoo Finance Real Data Integration)
-const { YahooFinance } = require('yahoo-finance2');
+const YahooFinance = require('yahoo-finance2').default;
 const yahooFinance = new YahooFinance({ suppressNotices: ['yahooSurvey'] });
 
 const initialStocks = [
