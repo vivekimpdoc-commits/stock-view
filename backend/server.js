@@ -3,6 +3,8 @@ const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
 const cors = require('cors');
+const path = require('path');
+const fs = require('fs');
 const { connectDB } = require('./config/db');
 const { initStockSimulator } = require('./services/stockSimulator');
 
@@ -52,6 +54,20 @@ const startServer = async () => {
 
   // Initialize Real-time Stock Market Simulators & WebSockets
   initStockSimulator(io);
+
+  // Serve static files from the React frontend app
+  const frontendDistPath = path.join(__dirname, '../frontend/dist');
+  if (fs.existsSync(frontendDistPath)) {
+    console.log(`📁 Serving frontend static assets from: ${frontendDistPath}`);
+    app.use(express.static(frontendDistPath));
+    
+    // Anything that doesn't match API endpoints, serve index.html
+    app.get('*', (req, res) => {
+      res.sendFile(path.resolve(frontendDistPath, 'index.html'));
+    });
+  } else {
+    console.log(`⚠️  Frontend build directory not found at: ${frontendDistPath}. Serving API endpoints only.`);
+  }
 
   // Bind Express server listening port
   const PORT = process.env.PORT || 5000;
