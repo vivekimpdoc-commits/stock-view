@@ -3,11 +3,16 @@
   "version": "1.0.0",
   "description": "Real-Time Indian Stock Market Web Application - Root Monorepo",
   "scripts": {
+    "install-all": "npm install && npm run install-backend && npm run install-frontend",
     "install-backend": "cd backend && npm install",
     "install-frontend": "cd frontend && npm install",
     "build-frontend": "cd frontend && npm run build",
     "build": "npm run install-backend && npm run install-frontend && npm run build-frontend",
-    "start": "cd backend && npm start"
+    "start": "cd backend && npm start",
+    "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\""
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
   },
   "engines": {
     "node": ">=18.0.0"
