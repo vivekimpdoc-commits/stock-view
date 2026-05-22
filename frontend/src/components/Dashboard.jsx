@@ -15,7 +15,8 @@ import {
   ArrowUpRight, 
   ArrowDownRight,
   Briefcase,
-  Plus
+  Plus,
+  X
 } from 'lucide-react';
 
 export default function Dashboard() {
