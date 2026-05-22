@@ -16,7 +16,8 @@ import {
   ArrowDownRight,
   Briefcase,
   Plus,
-  X
+  X,
+  AlertTriangle
 } from 'lucide-react';
 
 export default function Dashboard() {
@@ -160,9 +161,40 @@ export default function Dashboard() {
     }
   };
 
+  const isGitHubPages = window.location.hostname.endsWith('github.io') || window.location.hostname.includes('github.io');
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-6 space-y-6">
       
+      {/* GitHub Pages static preview alert banner */}
+      {isGitHubPages && (
+        <div className="bg-amber-500/10 border border-amber-500/20 text-amber-200 p-4.5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 backdrop-blur-md shadow-lg shadow-amber-500/5 select-none relative overflow-hidden">
+          <div className="absolute top-0 bottom-0 left-0 w-[4px] bg-amber-500" />
+          <div className="flex items-start sm:items-center gap-3.5">
+            <div className="p-2 rounded-xl bg-amber-500/10 text-amber-400 shrink-0">
+              <AlertTriangle className="w-5.5 h-5.5 animate-pulse" />
+            </div>
+            <div>
+              <h4 className="font-extrabold text-sm uppercase tracking-wider text-amber-300">GitHub Pages Static Mode Active</h4>
+              <p className="text-xs text-amber-200/70 mt-0.5 leading-relaxed">
+                GitHub Pages supports static file hosting only and cannot run the Express/Socket.io backend. 
+                Live pricing updates, portfolio trades, and authentication are simulated locally on the client-side.
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2.5 shrink-0 w-full sm:w-auto">
+            <a 
+              href="https://github.com/vivekimpdoc-commits/stock-view" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="px-3.5 py-1.5 rounded-xl bg-slate-900 border border-white/5 hover:border-amber-500/20 hover:bg-slate-950 text-xs font-extrabold text-amber-200 transition-all text-center w-full sm:w-auto"
+            >
+              View Repository
+            </a>
+          </div>
+        </div>
+      )}
+
       {/* 1. Header Navigation Bar */}
       <header className="flex justify-between items-center bg-slate-950/60 border border-white/5 px-6 py-4 rounded-2xl backdrop-blur-md relative overflow-hidden">
         <div className="absolute top-0 bottom-0 left-0 w-[4px] bg-gradient-to-b from-cyan-500 to-emerald-500" />
